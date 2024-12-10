@@ -20,7 +20,7 @@ def probability_density(r):
     return 4 * np.pi * r**2 * (1 / (np.pi * a0**3)) * np.exp(-2 * r / a0)
 
 # 샘플링에 사용할 변수 초기화
-num_samples = 10000  # 시도할 총 샘플 수
+num_samples = 100000  # 시도할 총 샘플 수
 max_r = 5 * a0  # 반지름 r의 최대값. 전자가 존재할 수 있는 최대 거리를 설정
 accepted = []  # 수락된 샘플의 좌표를 저장할 리스트
 

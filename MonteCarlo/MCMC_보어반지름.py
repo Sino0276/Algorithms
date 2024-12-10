@@ -74,7 +74,7 @@ def mcmc_metropolis_hastings_spherical(num_samples, step_size, burn_in=1000):
     return np.array(samples)  # 배열로 변환하여 반환
 
 # MCMC 매개변수 설정
-num_samples = 200000  # 최종 생성할 샘플 개수
+num_samples = 100000  # 최종 생성할 샘플 개수
 step_size = 0.5  # 샘플 제안 분포의 스텝 크기
 burn_in = 2000  # 버닝 단계 반복 횟수
 
