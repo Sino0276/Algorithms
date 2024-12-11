@@ -16,8 +16,11 @@ def probability_density(r):
     Returns:
         float: 해당 거리 r에서의 확률 밀도
     """
-    # 구면 좌표에서 부피 요소(4πr^2)를 포함한 확률 밀도
-    return 4 * np.pi * r**2 * (1 / (np.pi * a0**3)) * np.exp(-2 * r / a0)
+
+    waveFunc_Square = (1 / (np.pi * a0**3)) * np.exp(-2 * r / a0) # 파동함수의 제곱
+
+    # *구면 좌표*에서 부피 요소(4πr^2)를 포함한 확률 밀도
+    return 4 * np.pi * r**2 * waveFunc_Square
 
 # 샘플링에 사용할 변수 초기화
 num_samples = 100000  # 시도할 총 샘플 수
@@ -35,7 +38,11 @@ for _ in range(num_samples):
     phi = np.random.uniform(0, 2 * np.pi)
     
     # (2) 확률 밀도의 최대값을 기준으로 수락/거부 결정
-    max_prob = probability_density(0)  # 확률 밀도의 이론적 최대값 (r = 0)
+    r_max = a0 / 2
+    max_prob = probability_density(r_max)  # 확률 밀도의 이론적 최대값 (r = a0 / 2)
+    # print(max_prob)
+    print(probability_density(r))
+    # 0.3xxx < probability
     if np.random.uniform(0, max_prob) < probability_density(r):
         # (3) 수락된 샘플을 데카르트 좌표로 변환
         # 구면 좌표를 데카르트 좌표로 변환하여 저장
