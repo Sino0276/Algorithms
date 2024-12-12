@@ -14,7 +14,7 @@ def hydrogen_1s_probability_density(r):
     Returns:
         float: 주어진 r에서의 확률 밀도 값.
     """
-    a0 = 1  # 보어 반지름을 1로 가정 (원자 단위)
+    a0 = 1.0  # 보어 반지름을 1로 가정 (원자 단위)
     return (np.exp(-2 * r) / np.pi)  # 정규화된 확률 밀도 값 반환
 
 # 구면 좌표를 고려한 확률 밀도 함수 정의
@@ -76,6 +76,7 @@ def mcmc_metropolis_hastings_spherical(num_samples, step_size, burn_in=1000):
 # MCMC 매개변수 설정
 num_samples = 100000  # 최종 생성할 샘플 개수
 step_size = 0.5  # 샘플 제안 분포의 스텝 크기
+# 버닝 단계를 사용하여 초반 체인이 목표 확률 밀도에 도달하기 전에 생성된 값을 넘김으로써 정확도를 높힘.
 burn_in = 2000  # 버닝 단계 반복 횟수
 
 # MCMC를 사용하여 샘플 생성

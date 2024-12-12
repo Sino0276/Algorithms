@@ -41,8 +41,8 @@ for _ in range(num_samples):
     r_max = a0 / 2
     max_prob = probability_density(r_max)  # 확률 밀도의 이론적 최대값 (r = a0 / 2)
     # print(max_prob)
-    print(probability_density(r))
-    # 0.3xxx < probability
+    # print(probability_density(r))
+    # 0.36xx < probability
     if np.random.uniform(0, max_prob) < probability_density(r):
         # (3) 수락된 샘플을 데카르트 좌표로 변환
         # 구면 좌표를 데카르트 좌표로 변환하여 저장
